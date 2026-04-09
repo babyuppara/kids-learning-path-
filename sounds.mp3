@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kids Rhymes with Song</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #fff8dc;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff4d4d;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.rhyme {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 22px;
+  color: #333;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.rhyme:hover {
+  transform: scale(1.05);
+}
+
+/* Text Colors */
+.red {color: #ff4d4d;}
+.orange {color: #ff944d;}
+.yellow {color: #ffcc00;}
+.green {color: #33cc33;}
+.blue {color: #3399ff;}
+.purple {color: #9966ff;}
+.pink {color: #ff99cc;}
+.teal {color: #33cccc;}
+.brown {color: #cc9966;}
+.magenta {color: #ff33ff;}
+</style>
+</head>
+<body>
+
+<h1>Nursery Rhymes with Song</h1>
+
+<div class="chart">
+
+  <div class="rhyme red" onclick="playAudio('twinkle')">
+    Twinkle, Twinkle, Little Star<br>
+    How I Wonder What You Are!<br>
+    Up Above the World So High,<br>
+    Like a Diamond in the Sky.
+  </div>
+
+  <div class="rhyme orange" onclick="playAudio('humpty')">
+    Humpty Dumpty sat on a wall,<br>
+    Humpty Dumpty had a great fall.<br>
+    All the King's horses and all the King's men,<br>
+    Couldn't put Humpty together again.
+  </div>
+
+  <div class="rhyme yellow" onclick="playAudio('baa')">
+    Baa, Baa, Black Sheep,<br>
+    Have you any wool?<br>
+    Yes sir, yes sir,<br>
+    Three bags full.
+  </div>
+
+</div>
+
+<!-- Audio files -->
+<audio id="twinkle" src="audio/twinkle_girl.mp3"></audio>
+<audio id="humpty" src="audio/humpty_girl.mp3"></audio>
+<audio id="baa" src="audio/baa_girl.mp3"></audio>
+
+<script>
+function playAudio(id){
+  // Stop all playing audio first
+  document.querySelectorAll('audio').forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
+  
+  let audio = document.getElementById(id);
+  audio.play();
+}
+</script>
+
+</body>
+</html>
